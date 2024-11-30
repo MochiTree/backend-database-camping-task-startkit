@@ -180,6 +180,20 @@
     -- 6. 最大授課人數`max_participants` 設定為10
     -- 7. 授課連結設定`meeting_url`為 https://test-meeting.test.io
 
+-- insert into "COURSE"(user_id,skill_id,name,start_at,end_at,max_participants,meeting_url)
+--VALUES((select us.id from "USER" as us where us.email='lee2000@hexschooltest.io'),
+--(select sk.id from "SKILL" as sk where sk.name='重訓'),
+--'重訓基礎課',
+--'2024-11-25 14:00:00',
+--'2024-11-25 16:00:00',
+--10,
+--'https://test-meeting.test.io');
+
+------------------------------------------------------------------
+--select us.name as 教練名稱,
+--cou.name as 課程名稱
+--from "COURSE" as cou
+--inner join "USER" as us on us.id= cou.user_id;
 
 -- ████████  █████   █    █████ 
 --   █ █   ██    █  █     █     
