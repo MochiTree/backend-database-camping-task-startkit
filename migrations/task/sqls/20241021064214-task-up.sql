@@ -324,7 +324,7 @@ inner join "CREDIT_PURCHASE" as C_P on C_PK.id = C_P.credit_package_id
 where extract(month from C_P.purchase_at) = 11
 group by C_PK.name;
 
-EXTRACT參考:https://www.fooish.com/sql/mysql-extract-function.html
+-- EXTRACT參考:https://www.fooish.com/sql/mysql-extract-function.html
    
 
 -- 6-4. 查詢：計算 11 月份總營收（使用 purchase_at 欄位統計）
