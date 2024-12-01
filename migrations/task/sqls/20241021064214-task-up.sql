@@ -337,6 +337,6 @@ where extract(month from C_P.purchase_at) = 11;
 -- 6-5. 查詢：計算 11 月份有預約課程的會員人數（需使用 Distinct，並用 created_at 和 status 欄位統計）
 -- 顯示須包含以下欄位： 預約會員人數
 
-select COUNT(distinct cou_bk.user_id) as 預約會員人數
-from "COURSE_BOOKING" as cou_bk
-where extract(month from cou_bk.created_at) = 11 and cou_bk.status = 'active';
+-- select COUNT(distinct cou_bk.user_id) as 預約會員人數
+-- from "COURSE_BOOKING" as cou_bk
+-- where extract(month from cou_bk.created_at) = 11 and cou_bk.status = 'active';
