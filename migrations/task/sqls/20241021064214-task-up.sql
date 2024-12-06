@@ -125,44 +125,44 @@ values((select us.id from "USER" as us where email='lee2000@hexschooltest.io'),2
     -- 2. 教練`肌肉棒子` 需要有 `瑜伽` 專長
     -- 3. 教練`Q太郎` 需要有 `有氧運動` 與 `復健訓練` 專長
 
--- insert into "COACH_LINK_SKILL"(coach_id,skill_id)
--- VALUES((select coa.id from "COACH" as coa where (select us.id from "USER" as us where email='lee2000@hexschooltest.io')= coa.user_id) ,(select sk.id from "SKILL" as sk where name='重訓')),
--- ((select coa.id from "COACH" as coa where (select us.id from "USER" as us where email='muscle@hexschooltest.io')= coa.user_id) ,(select sk.id from "SKILL" as sk where name='重訓')),
--- ((select coa.id from "COACH" as coa where (select us.id from "USER" as us where email='starplatinum@hexschooltest.io')= coa.user_id) ,(select sk.id from "SKILL" as sk where name='重訓'));
+insert into "COACH_LINK_SKILL"(coach_id,skill_id)
+VALUES((select coa.id from "COACH" as coa where (select us.id from "USER" as us where email='lee2000@hexschooltest.io')= coa.user_id) ,(select sk.id from "SKILL" as sk where name='重訓')),
+((select coa.id from "COACH" as coa where (select us.id from "USER" as us where email='muscle@hexschooltest.io')= coa.user_id) ,(select sk.id from "SKILL" as sk where name='重訓')),
+((select coa.id from "COACH" as coa where (select us.id from "USER" as us where email='starplatinum@hexschooltest.io')= coa.user_id) ,(select sk.id from "SKILL" as sk where name='重訓'));
 
 
--- insert into "COACH_LINK_SKILL"(coach_id,skill_id)
--- VALUES((select coa.id from "COACH" as coa where (select us.id from "USER" as us where email='muscle@hexschooltest.io')= coa.user_id) ,(select sk.id from "SKILL" as sk where name='瑜伽'));
+insert into "COACH_LINK_SKILL"(coach_id,skill_id)
+VALUES((select coa.id from "COACH" as coa where (select us.id from "USER" as us where email='muscle@hexschooltest.io')= coa.user_id) ,(select sk.id from "SKILL" as sk where name='瑜伽'));
 
--- insert into "COACH_LINK_SKILL"(coach_id,skill_id)
--- VALUES((select coa.id from "COACH" as coa where (select us.id from "USER" as us where email='starplatinum@hexschooltest.io')= coa.user_id) ,(select sk.id from "SKILL" as sk where name='有氧運動')),
--- ((select coa.id from "COACH" as coa where (select us.id from "USER" as us where email='starplatinum@hexschooltest.io')= coa.user_id) ,(select sk.id from "SKILL" as sk where name='復健訓練'));
+insert into "COACH_LINK_SKILL"(coach_id,skill_id)
+VALUES((select coa.id from "COACH" as coa where (select us.id from "USER" as us where email='starplatinum@hexschooltest.io')= coa.user_id) ,(select sk.id from "SKILL" as sk where name='有氧運動')),
+((select coa.id from "COACH" as coa where (select us.id from "USER" as us where email='starplatinum@hexschooltest.io')= coa.user_id) ,(select sk.id from "SKILL" as sk where name='復健訓練'));
 
--- select * from "COACH_LINK_SKILL";
+select * from "COACH_LINK_SKILL";
 
 -- 3-3 修改：更新教練的經驗年數，資料需求如下：
     -- 1. 教練`肌肉棒子` 的經驗年數為3年
     -- 2. 教練`Q太郎` 的經驗年數為5年
 
--- update "COACH"
--- set experience_years=3
--- where (select us.id from "USER" as us where us.email='muscle@hexschooltest.io')=user_id;
+update "COACH"
+set experience_years=3
+where (select us.id from "USER" as us where us.email='muscle@hexschooltest.io')=user_id;
 
--- update "COACH"
--- set experience_years=5
--- where (select us.id from "USER" as us where us.email='starplatinum@hexschooltest.io')=user_id;
+update "COACH"
+set experience_years=5
+where (select us.id from "USER" as us where us.email='starplatinum@hexschooltest.io')=user_id;
 
 -- 3-4 刪除：新增一個專長 空中瑜伽 至 SKILL 資料表，之後刪除此專長。
 
--- insert into "SKILL" (name)
--- VALUES('空中瑜伽');
+insert into "SKILL" (name)
+VALUES('空中瑜伽');
 
--- select * from "SKILL";
+select * from "SKILL";
 
--- delete from "SKILL"
--- where name='空中瑜伽';
+delete from "SKILL"
+where name='空中瑜伽';
 
--- select * from "SKILL";
+select * from "SKILL";
 
 --  ████████  █████   █    █   █ 
 --    █ █   ██    █  █     █   █ 
