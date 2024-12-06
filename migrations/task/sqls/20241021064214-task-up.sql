@@ -86,8 +86,8 @@ values
 ( select price from "CREDIT_PACKAGE" where name='14 堂組合包方案' ));
 
 -- (額外自我練習：嘗試 顯示 USER與購買之課程)
--- select user.name as 名稱 from "CREDIT_PURCHASE"
--- inner join "USER" on credit_purchase.user_id= user.id;
+select user.name as 名稱 from "CREDIT_PURCHASE"
+inner join "USER" on credit_purchase.user_id= user.id;
 -- 在Dbeaver無法運行，會報語法.錯誤
 
 -- 上面跟下面差別在有沒有下別名(AS)  下面SQL語法在Dbeaver可運行，但不理解為什麼「 . 」會被Dbeaver報語法錯誤，請助教解惑Ｑ_Ｑ！
