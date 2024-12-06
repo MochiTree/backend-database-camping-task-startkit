@@ -87,7 +87,8 @@ values
 
 
 -- (額外自我練習：嘗試 顯示 USER與購買之課程)
-select user.name as 名稱 from "CREDIT_PURCHASE" inner join "USER" on credit_purchase.user_id= user.id;
+-- select user.name as 名稱 from "CREDIT_PURCHASE"
+-- inner join "USER" on credit_purchase.user_id= user.id;
 -- 在Dbeaver無法運行，會報語法.錯誤
 
 -- 上面跟下面差別在有沒有下別名(AS)  下面SQL語法在Dbeaver可運行，但不理解為什麼「 . 」會被Dbeaver報語法錯誤，請助教解惑Ｑ_Ｑ！
@@ -110,12 +111,12 @@ select user.name as 名稱 from "CREDIT_PURCHASE" inner join "USER" on credit_pu
     -- 2. 將用戶`肌肉棒子`新增為教練，並且年資設定為2年
     -- 3. 將用戶`Q太郎`新增為教練，並且年資設定為2年
 
--- insert into "COACH"(user_id,experience_years)
--- values((select us.id from "USER" as us where email='lee2000@hexschooltest.io'),2),
+insert into "COACH"(user_id,experience_years)
+values((select us.id from "USER" as us where email='lee2000@hexschooltest.io'),2),
 
--- ((select us.id from "USER" as us where email='muscle@hexschooltest.io'),2),
+((select us.id from "USER" as us where email='muscle@hexschooltest.io'),2),
 
--- ((select us.id from "USER" as us where email='starplatinum@hexschooltest.io'),2);
+((select us.id from "USER" as us where email='starplatinum@hexschooltest.io'),2);
 
 
 
