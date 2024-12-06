@@ -92,9 +92,9 @@ values
 -- 在Dbeaver無法運行，會報語法.錯誤
 
 -- 上面跟下面差別在有沒有下別名(AS)  下面SQL語法在Dbeaver可運行，但不理解為什麼「 . 」會被Dbeaver報語法錯誤，請助教解惑Ｑ_Ｑ！
---  select us.name as 使用者名稱,C_PK.name as 方案 from "CREDIT_PURCHASE" as C_P
---  inner join "USER" as us on C_P.user_id= us.id
---  inner join "CREDIT_PACKAGE" as C_PK on C_PK.id= C_P.credit_package_id; 
+ select us.name as 使用者名稱,C_PK.name as 方案 from "CREDIT_PURCHASE" as C_P
+ inner join "USER" as us on C_P.user_id= us.id
+ inner join "CREDIT_PACKAGE" as C_PK on C_PK.id= C_P.credit_package_id; 
 
 
 
