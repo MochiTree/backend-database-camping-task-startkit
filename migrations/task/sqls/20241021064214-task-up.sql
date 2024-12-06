@@ -27,8 +27,8 @@ values ('李燕容','lee2000@hexschooltest.io','USER'),
 
 update "USER"
 set role='COACH'
-where email='lee2000@hexschooltest.io' or email='muscle@hexschooltest.io' or email='starplatinum@hexschooltest.io'
-select * from "USER";
+where email='lee2000@hexschooltest.io' or email='muscle@hexschooltest.io' or email='starplatinum@hexschooltest.io';
+
 
 -- 1-3 刪除：刪除USER 資料表中，用 Email 找到透明人，並刪除該筆資料
 
