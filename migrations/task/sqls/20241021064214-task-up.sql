@@ -293,37 +293,37 @@ group by us.name;
 -- 6-1 查詢：查詢專長為重訓的教練，並按經驗年數排序，由資深到資淺（需使用 inner join 與 order by 語法)
 -- 顯示須包含以下欄位： 教練名稱 , 經驗年數, 專長名稱
 
--- select us.name as 教練名稱,
--- 	   coa.experience_years as 經驗年數,
--- 	   sk.name as 專長名稱
--- from "COACH" as coa
--- inner join "USER" as us ON coa.user_id = us.id
--- inner join "COACH_LINK_SKILL" cls ON coa.id = cls.coach_id
--- inner join "SKILL" as sk ON cls.skill_id = sk.id
--- where sk.name = '重訓'
--- order by coa.experience_years DESC;
+select us.name as 教練名稱,
+	   coa.experience_years as 經驗年數,
+	   sk.name as 專長名稱
+from "COACH" as coa
+inner join "USER" as us ON coa.user_id = us.id
+inner join "COACH_LINK_SKILL" cls ON coa.id = cls.coach_id
+inner join "SKILL" as sk ON cls.skill_id = sk.id
+where sk.name = '重訓'
+order by coa.experience_years DESC;
 
 -- 6-2 查詢：查詢每種專長的教練數量，並只列出教練數量最多的專長（需使用 group by, inner join 與 order by 與 limit 語法）
 -- 顯示須包含以下欄位： 專長名稱, coach_total
 
--- select sk.name AS 專長名稱,
---       COUNT(coa.id) as coach_total
--- from "SKILL" as sk
--- inner join "COACH_LINK_SKILL" as cls ON sk.id = cls.skill_id
--- inner join "COACH" as coa ON cls.coach_id = coa.id
--- group by sk.name
--- order by COUNT(coa.id) desc limit 1;
+select sk.name AS 專長名稱,
+      COUNT(coa.id) as coach_total
+from "SKILL" as sk
+inner join "COACH_LINK_SKILL" as cls ON sk.id = cls.skill_id
+inner join "COACH" as coa ON cls.coach_id = coa.id
+group by sk.name
+order by COUNT(coa.id) desc limit 1;
 
 -- 6-3. 查詢：計算 11 月份組合包方案的銷售數量
 -- 顯示須包含以下欄位： 組合包方案名稱, 銷售數量
 
 
--- select C_PK.name as 組合包方案名稱,
---        COUNT(C_P.id) as 銷售數量
--- from "CREDIT_PACKAGE" as C_PK
--- inner join "CREDIT_PURCHASE" as C_P on C_PK.id = C_P.credit_package_id
--- where extract(month from C_P.purchase_at) = 11
--- group by C_PK.name;
+select C_PK.name as 組合包方案名稱,
+       COUNT(C_P.id) as 銷售數量
+from "CREDIT_PACKAGE" as C_PK
+inner join "CREDIT_PURCHASE" as C_P on C_PK.id = C_P.credit_package_id
+where extract(month from C_P.purchase_at) = 11
+group by C_PK.name;
 
 -- EXTRACT參考:https://www.fooish.com/sql/mysql-extract-function.html
    
@@ -331,15 +331,15 @@ group by us.name;
 -- 6-4. 查詢：計算 11 月份總營收（使用 purchase_at 欄位統計）
 -- 顯示須包含以下欄位： 總營收
 
--- select SUM(C_P.price_paid) as 總營收
--- from "CREDIT_PURCHASE" as C_P
--- where extract(month from C_P.purchase_at) = 11;
+select SUM(C_P.price_paid) as 總營收
+from "CREDIT_PURCHASE" as C_P
+where extract(month from C_P.purchase_at) = 11;
 
 -- 6-5. 查詢：計算 11 月份有預約課程的會員人數（需使用 Distinct，並用 created_at 和 status 欄位統計）
 -- 顯示須包含以下欄位： 預約會員人數
 
--- select COUNT(distinct cou_bk.user_id) as 預約會員人數
--- from "COURSE_BOOKING" as cou_bk
--- where extract(month from cou_bk.created_at) = 11 and cou_bk.status = 'active';
+select COUNT(distinct cou_bk.user_id) as 預約會員人數
+from "COURSE_BOOKING" as cou_bk
+where extract(month from cou_bk.created_at) = 11 and cou_bk.status = 'active';
 
 
